@@ -1,0 +1,89 @@
+create table student
+(
+sno char(9) primary key,
+sname char(8) not null,
+ssex char(2),
+sage int,
+sdept char(8)
+)
+
+insert into student values('200515001',	'赵菁菁',	'女',	23,	'CS');
+insert into student values('200515002',	'李勇',	'男',	20,	'CS');
+insert into student values('200515003',	'张力',	'男',	19,	'CS');
+insert into student values('200515004',	'张衡',	'男',	18,	'IS');
+insert into student values('200515005',	'张向东',	'男',	20,	'IS');
+insert into student values('200515006',	'张向丽',	'女',	20,	'IS');
+insert into student values('200515007',	'王芳',	'女',	20,	'CS');
+insert into student values('200515008',	'王民生',	'男',	25,	'MA');
+insert into student values('200515009',	'王小民',	'女',	18,	'MA');
+insert into student values('200515010',	'李晨',	'女',	22,	'MA');
+insert into student values('200515011',	'张毅',	'男',	20,	'WM');
+insert into student values('200515012',	'杨磊',	'女',	20,	'EN');
+insert into student values('200515013',	'李晨',	'女',	19,	'MA');
+insert into student values('200515014',	'张丰毅',	'男',	22,	'CS');
+insert into student values('200515015',	'李蕾',	'女',	21,	'EN');
+insert into student values('200515016',	'刘社',	'男',	21,	'CM');
+insert into student values('200515017',	'刘星耀',	'男',	18,	'CM');
+insert into student values('200515018',	'李贵',	'男',	19,	'EN');
+insert into student values('200515019',	'林自许',	'男',	20,	'WM');
+insert into student values('200515020',	'马翔',	'男',	21,	'');
+insert into student values('200515021',	'刘峰',	'男',	25,	'CS');
+insert into student values('200515022',	'牛站强',	'男',	22,	'');
+insert into student values('200515023',	'李婷婷',	'女',	18,	'');
+insert into student values('200515024',	'严丽',	'女',	20,	'');
+insert into student values('200515025',	'朱小鸥',	'女',	30,	'WM');
+
+
+create table course
+(
+cno int primary key,
+cname nchar(10) not null,
+cpno int,
+credit int
+)
+
+insert into course values(1,	'数据库',	5,	4);
+insert into course values(2,	'数学',	null	,2);
+insert into course values(3,	'信息系统',	1,	4);
+insert into course values(4,	'操作系统',	6,	3);
+insert into course values(5,	'数据结构',	7,	4);
+insert into course values(6,	'数据处理',	null	,2);
+insert into course values(7,	'PASCAL语言',	6,	4);
+insert into course values(8,	'大学英语',	null	,4);
+insert into course values(9,	'计算机网络',	null	,4);
+insert into course values(10,	'人工智能',	null	,2);
+
+create table sc
+(
+sno nchar(9),
+cno int,
+grade int,
+primary key(sno,cno)
+)
+
+insert into sc values('200515001',	1,	75);
+insert into sc values('200515002',	1,	85);
+insert into sc values('200515002',	3,	53);
+insert into sc values('200515003',	1,	86);
+insert into sc values('200515004',	1,	74);
+insert into sc values('200515005',	1,	58);
+insert into sc values('200515006',	1,	84);
+insert into sc values('200515004',	2,	46);
+insert into sc values('200515005',	2,	89);
+insert into sc values('200515006',	2,	65);
+insert into sc values('200515008',	2,	72);
+insert into sc values('200515009',	2,	76);
+insert into sc values('200515010',	2,	96);
+insert into sc values('200515010',	8,	86);
+insert into sc values('200515011',	8,	62);
+insert into sc values('200515015',	8,	0);
+insert into sc values('200515018',	8,	58);
+insert into sc values('200515001',	4,	62);
+insert into sc values('200515002',	4,	85);
+insert into sc values('200515021',	9,	54);
+insert into sc values('200515001',	5,	58);
+insert into sc values('200515021',	6,	58);
+insert into sc values('200515001',	7,	70);
+insert into sc values('200515005',	10,	65);
+insert into sc values('200515016',	8,	Null);
+insert into sc values('200515017',	8,	Null);

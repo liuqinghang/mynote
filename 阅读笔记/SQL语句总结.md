@@ -29,6 +29,11 @@ go 	//SQLServer下输完上述命令后回车，然后输入go回车执行
 运算符、连接符和函数大写
 表名大写，列名大小写混合
 视图会随着对应数据的更改更新
+不存在AS 需要起别名时直接在其后加 例 player p
+
+
+
+
 sql plus 报表
 rem 表示remark 以rem开头的内容会被忽略
 /*注释*/
@@ -199,6 +204,12 @@ SELECT            <目标列名序列>    -- 需要哪些列
     WHERE DeptId = 301 and Salary > 3000;
     WHERE DeptId =301 or DeptId = 303;
 注意：OR的优先级小于AND，要改变运算的顺序可以通过加括号的方式实现
+
+关于 exists 和 in
+select * from A where cc in (select cc from B)
+select * from A where exists (select cc from B where B.cc = A.cc)
+选择的标准是小表驱动大表
+exists 是先外后内, in 是先内后外
 ```
    ### 3, BETWEEN AND 
 ```
@@ -524,4 +535,18 @@ as
       print    ‘不能删除xsqk表中的信息!’
 go
 ```
+
+
+
+# 索引
+
+使用原则  数据量足够大,超过1000; 重复率不超过10%; 
+
+聚簇索引叶子节点存储的值就是需要的物理数据记录,非聚簇存放的是地址
+
+一个表只能有一个聚簇索引和任意的非聚簇索引
+
+对 where 筛选的字段建立索引能大幅提升查询效率
+
+联合索引有最左匹配原则
 

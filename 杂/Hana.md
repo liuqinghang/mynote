@@ -22,12 +22,22 @@ High‐Performance ANalytic Appliance
 
 ### 3 优势
 
-快速 
+快速
 
 多任务并行处理多任务并行处理
 
 减少数据传输减少数据传输
 
 对于 SAP/ERP 系统,实时获取数据库中数据
+
+ABAP 编程语言
+
+对于sap系统,可以通过SLT和Data Services工具复制数据,也支持csv文件进行数据导入
+
+Index Server 是HANA最核心的组件, 承担着内存管理、事务管理和元数据管理权限认证等  
+
+XS Server 是 Extended Application Services 的缩写,在HANA系统和用户之间充当桥梁的作用,内置了一个轻量级的web服务器, 预置大量 JS API,   
+
+
 
 ### 4 基本语法

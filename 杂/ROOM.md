@@ -1,8 +1,8 @@
 @[TOC]
 #Android-Room 数据库
-####前言:
+#### 前言:
   Google发布了一个和SQLite相关的库该库能帮助您在运行应用程序的设备上创建应用程序的数据缓存。
-  
+
   这个缓存是你的应用程序唯一的真实来源，允许用户查看应用程序中关键信息的一致副本，而不管用户是否有Internet连接。
 #### 作用：
      Room提供了一个访问SQLite的抽象层，以便在利用SQLite的全部功能的同时进行流畅的数据库访问
@@ -10,9 +10,9 @@
     方式是要在项目中使用Room需要在程序的build.gradle文件中添加以下依赖
 #### 优点：
     ① SQL查询在编译时就会验证 - 在编译时检查每个@Query和@Entity等，这就意味着没有任何运行时错误的风险可能会导致应用程序崩溃（并且它不仅检查语法问题，还会检查是否有该表）
-
+    
     ② 较少的模板代码
-
+    
     ③ 与 LiveData 集成
 ***
 ## 使用
@@ -21,14 +21,14 @@
 ```java
     implementation 'android.arch.persistence.room:runtime:1.0.0'
     annotationProcessor 'android.arch.persistence.room:compiler:1.0.0'
-``` 
+```
 #### 主要构成：
    - Database：
-   
+
     * 继承RoomDatabase的抽象类
-
+    
     * 在注释中包括与数据库关联的实体列表（@Database(entities ={ })）
-
+    
     * 包含一个无参的抽象方法并返回一个使用@Dao注解的类
 
    - Entity：对应数据库中的表
@@ -38,7 +38,7 @@
 
 
 ***
-####2，创建JavaBean
+#### 2，创建JavaBean
 *Entity：表示数据库内的表。*
 
 
@@ -78,18 +78,18 @@
     }
 ```
 - 主键
-    
+  
    这里需要使用 @Entity 来注解该类
-    
+   
     1. 至少要有一个主键 @PrimaryKey
     如果该实体具有复合主键，则采用以下格式
     *@Entity(primaryKeys = {"Key1", "Key2"}) public ...*
-    
+   
     2. 如果需要指定表名：
     @Entity(tableName = "users") ...
 
 - 索引
-   
+  
    根据数据的访问方式，可能需要索引数据库中的某些字段以加快查询速度。若要向实体添加索引，在@Entity注释中包含索引属性，列出要包含在索引或复合索引中的列的名称
 ```android
 @Entity(indices = {@Index("name"),
@@ -119,7 +119,7 @@ public class User {
 
 ####3，创建DAO
    DAO代表数据访问对象，所以它是告诉我们的数据库如何操作数据的一种方式：
-   
+
    @Insert , @Update , @Delete , @Query 代表我们常用的 插入 、 更新 、 删除 、 查询 数据库操作
 ```
     @Dao
@@ -142,36 +142,37 @@ public class User {
 
     @Query("SELECT * FROM user")
     List<User> getAllUsers();
-
+    
     @Query("SELECT * FROM user WHERE id=:id")
     User getUser(int id);
-
+    
     @Query("SELECT * FROM user")
     Cursor getUserCursor();
-    
+
 @Embedded 嵌套对象
 
     public class Address {
     public String street;
     public String state;
     public String city;
-
+    
     @ColumnInfo(name = "post_code")
     public int postCode;
     }
-
+    
     @Entity
     public class User {
         @PrimaryKey
         public int id;
-
+    
     public String firstName;
-
+    
     @Embedded
     public Address address;
     }
-####4，创建DATABASE
+#### 4，创建DATABASE
    以下是一个实例：
+
 ```java
 @Database(entities = { User.class }, version = 1,exportSchema = false)
     public abstract class UserDatabase extends RoomDatabase {
@@ -254,11 +255,11 @@ static final Migration MIGRATION_2_3 = new Migration(2, 3) {
 *https://www.jb51.net/article/136218.htm*
 
 
-    
-    
-    
-    
-    
-    
-    
-    
+​    
+​    
+​    
+​    
+​    
+​    
+​    
+​    
